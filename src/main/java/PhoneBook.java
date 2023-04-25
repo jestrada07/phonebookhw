@@ -22,8 +22,11 @@ public class PhoneBook {
 
 
     public void add(String name, String phoneNumber) {
-        this.phonebook.put(name,List.of(phoneNumber));
+        List<String> numbers = new ArrayList<>();
+        numbers.add(phoneNumber);
+        this.phonebook.put(name, Arrays.asList(phoneNumber));
     }
+
 
     public void addAll(String name, String[] phoneNumbers) {
         List<String> phoneList = new ArrayList<>();
@@ -41,7 +44,7 @@ public class PhoneBook {
 
     public Boolean hasEntry(String name, String phoneNumber){
         if (this.phonebook.containsKey(name)) {
-            if(this.phonebook.containsValue(List.of(phoneNumber))){
+            if(this.phonebook.containsValue(Arrays.asList(phoneNumber))){
                 return true;
             }
         }
