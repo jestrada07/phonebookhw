@@ -12,26 +12,26 @@ public class PhoneBook {
 
     private final Map<String, List<String>> phonebook;
 
-    public PhoneBook(Map<String, List<String>> map) {
+    public PhoneBook(Map<String, List<String>> map) { //constructor that initializes a "phonebook" with a given map.
         this.phonebook = map;
     }
 
     public PhoneBook() {
-        this(new LinkedHashMap<>());
+        this(new LinkedHashMap<>());    //default constructor that initializes an empty "phonebook"
     }
 
 
-    public void add(String name, String phoneNumber) {
+    public void add(String name, String phoneNumber) {   //adds a single phone number to the phonebook under the given name
         List<String> numbers = new ArrayList<>();
         numbers.add(phoneNumber);
         this.phonebook.put(name, Arrays.asList(phoneNumber));
     }
 
 
-    public void addAll(String name, String[] phoneNumbers) {
+    public void addAll(String name, String[] phoneNumbers) { //adds an array of phone numbers to the phonebook under the given name
         List<String> phoneList = new ArrayList<>();
-        phoneList.addAll(Arrays.asList(phoneNumbers));
-        this.phonebook.put(name, List.of(phoneNumbers));
+        phoneList.addAll(Arrays.asList(phoneNumbers)); //Returns a fixed-size list backed by the specified array. Changes made to the array will be visible in the returned list, and changes made to the list will be visible in the array
+        this.phonebook.put(name, Arrays.asList(phoneNumbers));
     }
 
     public void remove(String name) {
@@ -65,8 +65,8 @@ public class PhoneBook {
     }
 
     public List<String> getAllContactNames(){
-        List<String> names = new ArrayList<>();
-        for(Map.Entry<String,List<String>> entry: phonebook.entrySet()){
+        List<String> names = new ArrayList<>(); //creating an array list type string that is named "names"
+        for(Map.Entry<String,List<String>> entry: phonebook.entrySet()){      //Returns a Set view of the mappings contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.
             names.add(entry.getKey());
         }
         return names;
